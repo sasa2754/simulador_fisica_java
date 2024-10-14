@@ -67,4 +67,10 @@ public class CanvaController implements Initializable {
 
         tela.fillRoundRect(x, y, 50, 50, 50, 50);
     }
+
+    private void drawMolinha(Double x, Double y, Color cor){
+        tela.setFill(cor);
+        tela.fillRect(x, y, );
+        
+    }
 }
