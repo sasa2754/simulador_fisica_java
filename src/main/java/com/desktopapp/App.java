@@ -2,7 +2,6 @@ package com.desktopapp;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class App extends Application {
@@ -12,7 +11,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Scene scene = MainController.CreateScene("MainScreen.fxml");
+        Scene scene = CanvaController.CreateScene();
         primaryStage.setScene(scene);
         primaryStage.setTitle("Bolinha");
         primaryStage.show();

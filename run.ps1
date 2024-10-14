@@ -8,7 +8,7 @@ if ($binCount -eq "0") {
 }
 
 # Copia o arquivo .fxml para a pasta 'bin'
-cp src/main/resources/com/desktopapp/MainScreen.fxml .\bin\
+cp src/main/resources/com/desktopapp/CanvaScene.fxml .\bin\
 
 # Compila todos os arquivos .java na estrutura de diretórios correta
 javac -d bin -sourcepath src/main/java src/main/java/com/desktopapp/*.java
