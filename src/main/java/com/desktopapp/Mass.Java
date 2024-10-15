@@ -4,7 +4,28 @@ import javafx.scene.paint.Color;
 
 public class Mass {
 
-    protected Double kg, Vx, Vy, x, y, canvaHeight, canvaWidth;
+    protected Double kg, Vx, Vy, x, y, canvaHeight, canvaWidth, size;
+
+    public Double getCanvaHeight() {
+        return canvaHeight;
+    }
+
+    public void setCanvaHeight(Double canvaHeight) {
+        this.canvaHeight = canvaHeight;
+    }
+
+    public void setCanvaWidth(Double canvaWidth) {
+        this.canvaWidth = canvaWidth;
+    }
+
+    public Double getSize() {
+        return size;
+    }
+
+    public void setSize(Double size) {
+        this.size = size;
+    }
+
     protected Color color;
 
     public Color getColor() {
@@ -59,7 +80,7 @@ public class Mass {
         this.kg = kg;
     }
 
-    public Mass(Double kg, Double x, Double y, Double Vx, Double Vy, Double canvaHeight, Double canvaWidth, Color color) {
+    public Mass(Double kg, Double x, Double y, Double Vx, Double Vy, Double canvaHeight, Double canvaWidth, Double size, Color color) {
         this.Vy = 0 + 10 * 0.016;
         this.Vx = Vx;
         this.x = x;
@@ -68,26 +89,26 @@ public class Mass {
         this.canvaHeight = canvaHeight;
         this.canvaWidth = canvaWidth;
         this.color = color;
+        this.size = size;
     }
 
-    public void ballPhysics(Double gravityFalls, Double C, Double xSpeed){
+    public void ballPhysics(Double gravityFalls, Double C, Double xSpeed, Double canvaHeight, Double canvaWidth){
         setVy(getVy() + gravityFalls * 1);
         setY(getY() + getVy());
 
         setX(getX() + getVx());
 
-        if (getY() > canvaHeight - 50) {
+        if (getY() > canvaHeight - getSize()) {
             setVy(-(getVy() * C));
         }
 
-        if (getY() > canvaHeight - 50) {
-            setY(canvaHeight - 50);
+        if (getY() > canvaHeight - getSize()) {
+            setY(canvaHeight - getSize());
             setVx((getVx() * C));
         }
 
-        if (getX() < 0 || getX() > canvaWidth - 50) {
+        if (getX() < 0 || getX() > canvaWidth - getSize()) {
             setVx(-getVx());
         }
-
     }
 }
