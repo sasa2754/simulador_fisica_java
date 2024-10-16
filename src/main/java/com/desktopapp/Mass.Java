@@ -92,7 +92,7 @@ public class Mass {
         this.size = size;
     }
 
-    public void ballPhysics(Double gravityFalls, Double C, Double xSpeed, Double canvaHeight, Double canvaWidth){
+    public void ballPhysics(Double gravityFalls, Double C, Double canvaHeight, Double canvaWidth){
         setVy(getVy() + gravityFalls * 1);
         setY(getY() + getVy());
 
@@ -107,8 +107,19 @@ public class Mass {
             setVx((getVx() * C));
         }
 
-        if (getX() < 0 || getX() > canvaWidth - getSize()) {
+        if (getX() < 0) {
+            setX(0d);
             setVx(-getVx());
+        }
+
+        if (getX() > canvaWidth - getSize()) {
+            setX(canvaWidth - getSize());
+            setVx(-getVx());
+        }
+
+        if (getY() < 0) {
+            setY(0d);
+            setVy(-(getVy() * C));
         }
     }
 }

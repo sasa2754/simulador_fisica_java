@@ -72,7 +72,7 @@ public class Mola {
     protected Mola(Mass bola1, Mass bola2){
         this.bola1 = bola1;
         this.bola2 = bola2;
-        this.midW = 400d;
+        this.midW = 200d;
     }
 
     public void springPhysics(){
@@ -87,11 +87,7 @@ public class Mola {
 
         Double hyp = Math.hypot(getBola1().getY() - getBola2().getY(), getBola1().getX() - getBola2().getX());
 
-        
-        Double angle = Math.asin((getBola1().getY() - getBola2().getY()) / hyp) * 180 / Math.PI;
-        
-
-        setPower((hyp - midW) * 0.02);
+        setPower((hyp - midW) * 0.09);
 
         Double weightSum = getBola1().getKg() + getBola2().getKg();
 
